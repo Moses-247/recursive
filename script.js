@@ -40,3 +40,23 @@ function fibanocci(n) {
 }
 
 console.log(fibanocci(0));
+
+//palindrome 
+
+function isPalindrome(str) {
+    const cleanedStr = str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+
+    function checkPalindrome(s, start, end) {
+        if (start >= end) {
+            return true;
+        }
+        if (s[start] !== s[end]) {
+            return false;
+        }
+        return checkPalindrome(s, start + 1, end - 1);
+    }
+
+    return checkPalindrome(cleanedStr, 0, cleanedStr.length - 1);
+}
+
+console.log(isPalindrome("A man, a plan, a canal: Panama"));
